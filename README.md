@@ -86,9 +86,9 @@ freelancerweb / specification console
 
 | Data | Versão | Descrição | Responsabilidade |
 |---|---|---|---|
-| 27/10/2026 | 0.3 | Paleta laranja, branco, cinza e preto; GIFs locais minimalistas no cabeçalho e divisores. Requisitos preservados. | Apoio do Codex; revisão pela equipe. |
-| 27/10/2026 | 0.2 | Atualização visual: cabeçalho animado, identidade de terminal, badges, navegação e apresentação da stack; requisitos preservados. | Apoio do Codex; revisão pela equipe. |
-| 27/10/2026 | 0.1 | Elaboração da especificação, escopo do MVP, requisitos, regras de negócio, modelagem e proposta técnica em Laravel. | Rascunho elaborado com apoio do Codex; revisão pela equipe. |
+| 27/10/2026 | 0.3 | Paleta laranja, branco, cinza e preto; GIFs locais minimalistas no cabeçalho e divisores. Requisitos preservados. | Revisão pendente pela equipe. |
+| 27/10/2026 | 0.2 | Atualização visual: cabeçalho animado, identidade de terminal, badges, navegação e apresentação da stack; requisitos preservados. | Revisão pendente pela equipe. |
+| 27/10/2026 | 0.1 | Elaboração da especificação, escopo do MVP, requisitos, regras de negócio, modelagem e proposta técnica em Laravel. | Revisão pendente pela equipe. |
 
 A versão 0.3 mantém os requisitos da versão 0.1, ainda não homologados. Mudanças de escopo deverão atualizar os requisitos e seus critérios de aceite neste arquivo. Os identificadores não devem ser reutilizados para funcionalidades diferentes.
 
@@ -632,7 +632,7 @@ O exemplo não é código executável completo e não deve ser copiado como func
 
 ### 4.4 Ambiente e execução — etapa futura
 
-Não há comandos de instalação ou execução aplicáveis ao estado atual: o repositório contém a documentação e as skills de apoio, não uma aplicação Laravel inicializada. A próxima etapa deverá selecionar a versão estável, gerar a estrutura oficial, instalar dependências, configurar ambiente, criar o banco e validar a página inicial antes de implementar os módulos.
+Não há comandos de instalação ou execução aplicáveis ao estado atual: a aplicação Laravel ainda não foi inicializada. A próxima etapa deverá selecionar a versão estável, gerar a estrutura oficial, instalar dependências, configurar ambiente, criar o banco e validar a página inicial antes de implementar os módulos.
 
 Depois dessa inicialização, esta seção deverá receber os comandos efetivamente testados de instalação, configuração, desenvolvimento, migrations, build e testes. Isso evita documentar comandos que ainda não podem ser executados no projeto.
 
@@ -715,14 +715,13 @@ Esses itens não devem ser considerados entregues nem obrigatórios para o MVP. 
 `07 / KNOWLEDGE BASE`
 
 - **TEMPLATE_LTP3_DOCUMENTAÇÃO.pdf**, fornecido pela equipe: estrutura acadêmica com histórico, definição do projeto, requisitos funcionais/não funcionais, modelagem, requisitos técnicos e backlog. A numeração repetida de “3.2” do modelo foi reorganizada neste README.
-- **Informações fornecidas pela equipe nesta conversa:** ideia de plataforma freelancer, prioridade em documentação, Laravel e identificação acadêmica.
+- **Definições da equipe:** ideia de plataforma freelancer, prioridade em documentação, Laravel e identificação acadêmica.
 - [Documentação oficial — instalação do Laravel 13](https://laravel.com/docs/13.x/installation), consultada em 27/10/2026.
 - [Documentação oficial — versões e requisitos de PHP do Laravel](https://laravel.com/docs/13.x/releases), consultada em 27/10/2026.
 - [Metadados do pacote laravel/framework no Packagist](https://repo.packagist.org/p2/laravel/framework.json), consultados em 27/10/2026: versão estável mais recente encontrada, `v13.39.0`.
 
 As regras e limites de produto são propostas de engenharia para este projeto; não foram extraídos como regras oficiais da Workana. O PDF foi tratado como referência documental, e seus exemplos genéricos não foram adotados automaticamente como exigências do sistema.
 
-Skills aplicadas como apoio: `spec-driven-development` para especificação e critérios de aceite, `planning-and-task-breakdown` para explicitar dependências e limites de planejamento, e `pdf` para leitura do template. As instruções da equipe prevalecem sobre convenções de armazenamento dessas skills: toda a documentação foi mantida neste README, e a implementação ficou para outra etapa.
 
 
 
