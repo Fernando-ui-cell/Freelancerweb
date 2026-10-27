@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/readme/freelancerweb-header.gif" width="100%" alt="Freelancerweb: banner preto com texto branco e um ponto laranja percorrendo um circuito minimalista." />
+<img src="assets/readme/freelancerweb-header.gif" width="100%" alt="Freelancerweb: banner de fundo transparente com texto branco e um ponto laranja percorrendo um circuito minimalista." />
 
 # Freelancerweb · Especificação de Software
 
@@ -732,7 +732,7 @@ As regras e limites de produto são propostas de engenharia para este projeto; n
 
 A apresentação foi inspirada na [referência de README da LilianMilan](https://gist.github.com/LilianMilan/0972e9ce4aa568b40032cddebdd0a860), adaptada para a documentação de um projeto acadêmico. A paleta combina laranja (`#F97316`), branco (`#FFFFFF`), cinza (`#A3A3A3`) e preto (`#101010`); os títulos de navegação mantêm o conteúdo em português.
 
-O banner e os divisores são **GIFs animados locais**, em `assets/readme/`, com movimentos suaves em ciclos de aproximadamente cinco segundos, sem flashes. Esses arquivos fazem parte da documentação e devem ser versionados junto com o README; não dependem de um serviço externo de animação. Todas as informações essenciais permanecem em texto estático. O GitHub controla a reprodução de GIFs e o tema da página; a paleta foi aplicada aos elementos gráficos, sem tentar alterar o fundo global do site.
+O banner e os divisores são **GIFs animados locais com fundo transparente**, em `assets/readme/`, com movimentos suaves em ciclos de aproximadamente cinco segundos, sem flashes. Esses arquivos fazem parte da documentação e devem ser versionados junto com o README; não dependem de um serviço externo de animação. Todas as informações essenciais permanecem em texto estático. O GitHub controla a reprodução de GIFs e o tema da página; a paleta foi aplicada aos elementos gráficos, sem tentar alterar o fundo global do site.
 
 Os badges utilizam **Shields.io** e continuam sujeitos à disponibilidade desse serviço. Não é necessário configurar tokens ou GitHub Actions.
 
