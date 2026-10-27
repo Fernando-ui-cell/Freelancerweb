@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/readme/freelancerweb-header.gif" width="100%" alt="Freelancerweb: banner de fundo transparente com texto branco e um ponto laranja percorrendo um circuito minimalista." />
+<img src="assets/readme/freelancerweb-header.svg" width="100%" alt="Freelancerweb: banner vetorial de fundo transparente com texto adaptado ao tema e um ponto laranja percorrendo um circuito minimalista." />
 
 # Freelancerweb · Especificação de Software
 
@@ -64,7 +64,7 @@ freelancerweb / specification console
 
 > **Situação:** documentação inicial para revisão da equipe e do professor. Nesta etapa não há aplicação implementada. As funcionalidades, telas, entidades e tecnologias abaixo são especificações para desenvolvimento futuro. Laravel foi definido pela equipe; as demais escolhas e os limites do MVP são propostas a validar.
 
-<p align="center"><img src="assets/readme/signal-divider.gif" width="100%" height="18" alt="" /></p>
+<p align="center"><img src="assets/readme/signal-divider.svg" width="100%" height="18" alt="" /></p>
 
 ## Sumário
 
@@ -161,7 +161,7 @@ O valor de uma proposta será uma condição registrada do serviço, **não um p
 
 Esse mapa é uma proposta de divisão de responsabilidades, não a criação de microsserviços. Notificações serão um recurso transversal acionado por eventos dos módulos. A implementação será planejada depois da revisão da documentação.
 
-<p align="center"><img src="assets/readme/signal-divider.gif" width="100%" height="18" alt="" /></p>
+<p align="center"><img src="assets/readme/signal-divider.svg" width="100%" height="18" alt="" /></p>
 
 ## 3. Requisitos do sistema
 
@@ -521,7 +521,7 @@ Na implementação, testes unitários cobrirão regras de valores, prazos e tran
 9. Registrar denúncia, aplicar medida administrativa e conferir trilha de auditoria.
 10. Verificar erros, acesso por teclado, tamanhos de tela e ausência de dados privados em páginas públicas.
 
-<p align="center"><img src="assets/readme/signal-divider.gif" width="100%" height="18" alt="" /></p>
+<p align="center"><img src="assets/readme/signal-divider.svg" width="100%" height="18" alt="" /></p>
 
 ## 4. Requisitos técnicos do projeto
 
@@ -732,11 +732,11 @@ As regras e limites de produto são propostas de engenharia para este projeto; n
 
 A apresentação foi inspirada na [referência de README da LilianMilan](https://gist.github.com/LilianMilan/0972e9ce4aa568b40032cddebdd0a860), adaptada para a documentação de um projeto acadêmico. A paleta combina laranja (`#F97316`), branco (`#FFFFFF`), cinza (`#A3A3A3`) e preto (`#101010`); os títulos de navegação mantêm o conteúdo em português.
 
-O banner e os divisores são **GIFs animados locais com fundo transparente**, em `assets/readme/`, com movimentos suaves em ciclos de aproximadamente cinco segundos, sem flashes. Esses arquivos fazem parte da documentação e devem ser versionados junto com o README; não dependem de um serviço externo de animação. Todas as informações essenciais permanecem em texto estático. O GitHub controla a reprodução de GIFs e o tema da página; a paleta foi aplicada aos elementos gráficos, sem tentar alterar o fundo global do site.
+O banner e os divisores são **SVGs vetoriais animados com fundo transparente**, em `assets/readme/`. Mantêm nitidez em qualquer resolução, com movimentos suaves de seis a sete segundos, sem flashes. O texto se adapta ao tema claro ou escuro, e as animações respeitam a preferência do sistema por movimento reduzido. Esses arquivos fazem parte da documentação e devem ser versionados junto com o README; não dependem de um serviço externo de animação. Todas as informações essenciais permanecem em texto estático. O navegador controla a renderização dos SVGs e o GitHub controla o tema da página; a paleta foi aplicada aos elementos gráficos, sem tentar alterar o fundo global do site.
 
 Os badges utilizam **Shields.io** e continuam sujeitos à disponibilidade desse serviço. Não é necessário configurar tokens ou GitHub Actions.
 
-Os diagramas usam Mermaid. Não há JavaScript, CSS customizado ou aplicação web incorporada ao README. As contagens representam os requisitos documentados, não funcionalidades prontas ou métricas de contribuição.
+Os diagramas usam Mermaid. Não há JavaScript ou aplicação web incorporada ao README. Os SVGs usam apenas estilos e animações internos, sem scripts ou recursos remotos. As contagens representam os requisitos documentados, não funcionalidades prontas ou métricas de contribuição.
 
 </details>
 

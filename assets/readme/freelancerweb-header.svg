@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title description">
+  <title id="title">Freelancerweb</title>
+  <desc id="description">Talentos conectados. Projetos com propósito. Circuito minimalista com um sinal laranja em movimento e fundo transparente.</desc>
+  <style>
+    .heading { fill: #171717; }
+    .secondary { fill: #595959; }
+    .structure { stroke: #a3a3a3; }
+    .signal { animation: travel 6s linear infinite; offset-path: path('M 920 92 H 1100 V 200 H 920 Z'); }
+    @keyframes travel { to { offset-distance: 100%; } }
+    @media (prefers-color-scheme: dark) {
+      .heading { fill: #ffffff; }
+      .secondary { fill: #a3a3a3; }
+      .structure { stroke: #525252; }
+    }
+    @media (prefers-reduced-motion: reduce) { .signal { animation: none; } }
+  </style>
+  <g fill="none" class="structure" stroke-width="1">
+    <path d="M40 28H1160M40 252H1160"/>
+    <rect x="920" y="92" width="180" height="108" rx="9"/>
+  </g>
+  <g font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace">
+    <text x="48" y="61" font-size="12" letter-spacing="1.6" class="secondary">FREELANCERWEB / PROJECT SPECIFICATION</text>
+    <text x="44" y="136" font-size="58" font-weight="700" letter-spacing="-2" class="heading">Freelancerweb</text>
+    <text x="48" y="174" font-size="18" class="secondary">Talentos conectados. Projetos com propósito.</text>
+    <rect x="48" y="204" width="238" height="30" rx="6" fill="none" class="structure"/>
+    <circle cx="63" cy="219" r="3" fill="#f97316"/>
+    <text x="77" y="223" font-size="12" letter-spacing=".5" class="heading">DOCUMENTAÇÃO PRIMEIRO</text>
+    <text x="1010" y="165" text-anchor="middle" font-size="54" fill="#f97316">{ / }</text>
+  </g>
+  <g fill="#a3a3a3">
+    <circle cx="920" cy="92" r="3"/>
+    <circle cx="1100" cy="92" r="3"/>
+    <circle cx="1100" cy="200" r="3"/>
+    <circle cx="920" cy="200" r="3"/>
+  </g>
+  <circle r="4" fill="#f97316" class="signal"/>
+</svg>
