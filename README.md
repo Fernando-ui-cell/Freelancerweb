@@ -4,9 +4,11 @@
 
 <img src="assets/readme/freelancerweb-header.svg" width="100%" alt="Freelancerweb: banner vetorial de fundo transparente com texto adaptado ao tema e um ponto laranja percorrendo um circuito minimalista." />
 
-# Freelancerweb · Especificação de Software
+# Freelancerweb · Especificação de software
 
-**Um marketplace de talentos, com engenharia desde o primeiro requisito.**
+**Uma plataforma para conectar clientes e profissionais freelancers.**
+
+Este documento define o que o Freelancerweb deverá fazer, quais regras deverá respeitar e como a equipe verificará cada entrega. Ele reúne o escopo da primeira versão, os requisitos, as telas previstas e as decisões técnicas para revisão da equipe e do professor.
 
 <p>
   <img src="https://img.shields.io/badge/FASE-DOCUMENTA%C3%87%C3%83O-F97316?style=for-the-badge&amp;labelColor=171717" alt="Fase: documentação" />
@@ -22,7 +24,7 @@
 > **Documentação primeiro.** Este repositório está na fase de especificação. Os badges indicam decisões e propostas, não funcionalidades implementadas ou resultados de testes.
 
 ```text
-freelancerweb / specification console
+freelancerweb / especificação do projeto
 ──────────────────────────────────────────────────────────────
   PRODUTO       Marketplace de serviços freelancers
   MISSÃO        Conectar quem precisa a quem sabe fazer
@@ -41,13 +43,13 @@ freelancerweb / specification console
 
 </div>
 
-### Identidade acadêmica
+## Identidade acadêmica
 
 **Instituto Federal de Educação, Ciência e Tecnologia do Tocantins — Campus Paraíso do Tocantins**
 
 **Curso:** Bacharelado em Sistemas de Informação
 
-**Disciplina:** Linguagens e Téncicas de programação III
+**Disciplina:** Linguagens e Técnicas de Programação III
 
 **Professor:** Marcos
 
@@ -55,20 +57,31 @@ freelancerweb / specification console
 
 **Equipe de desenvolvimento**
 
-| Integrante | Projeto |
-|---|---|
-| Fernando de Paula Matos | Freelancerweb |
-| Vinícius Celestino | Freelancerweb |
-| João Francisco | Freelancerweb |
-| Gabriel | Freelancerweb |
+- Fernando de Paula Matos
+- Vinícius Celestino
+- João Francisco
+- Gabriel
 
-> **Situação:** documentação inicial para revisão da equipe e do professor. Nesta etapa não há aplicação implementada. As funcionalidades, telas, entidades e tecnologias abaixo são especificações para desenvolvimento futuro. Laravel foi definido pela equipe; as demais escolhas e os limites do MVP são propostas a validar.
+**Versão do documento:** 0.4 · **Atualização:** 28/10/2026 · **Situação:** em revisão.
+
+Laravel está definido pela equipe. Os limites da primeira versão e as tecnologias complementares ainda precisam de validação, conforme a [seção 6](#6-validação-e-decisões-pendentes).
 
 <p align="center"><img src="assets/readme/signal-divider.svg" width="100%" height="18" alt="" /></p>
 
 ## Sumário
 
-`SYSTEM INDEX` · Acesse os módulos da documentação.
+### Como ler este documento
+
+| Para entender… | Comece por… |
+|---|---|
+| A proposta e os limites da primeira versão | [Definição do projeto](#2-definição-do-projeto) |
+| O que deve ser desenvolvido e como aceitar a entrega | [Requisitos funcionais](#31-requisitos-funcionais) e [regras de negócio](#33-regras-de-negócio) |
+| A qualidade esperada e como medi-la | [Requisitos não funcionais](#32-requisitos-não-funcionais) |
+| A navegação, os estados e os dados do sistema | [Estados](#36-estados-e-transições), [telas](#37-modelagem-das-telas) e [modelo de dados](#38-modelo-conceitual-de-dados) |
+| As tecnologias previstas | [Requisitos técnicos](#4-requisitos-técnicos-do-projeto) |
+| O que falta decidir antes de programar | [Decisões pendentes](#62-propostas-que-precisam-de-revisão) |
+
+**Índice completo:**
 
 1. [Histórico de alterações](#1-histórico-de-alterações)
 2. [Definição do projeto](#2-definição-do-projeto)
@@ -77,26 +90,28 @@ freelancerweb / specification console
 5. [Ideias futuras — backlog](#5-ideias-futuras--backlog)
 6. [Validação e decisões pendentes](#6-validação-e-decisões-pendentes)
 7. [Referências e origem da documentação](#7-referências-e-origem-da-documentação)
+8. [Glossário](#8-glossário)
 
 ---
 
 ## 1. Histórico de alterações
 
-`01 / CHANGELOG`
+`01 / HISTÓRICO`
 
-| Data | Versão | Descrição | Responsabilidade |
+| Data | Versão | Descrição | Validação |
 |---|---|---|---|
+| 28/10/2026 | 0.4 | Revisão de clareza: guia de leitura, glossário, exemplo de uso, distinção entre MVP e produção e alinhamento das regras. Registro da apresentação atual em SVG animado. | Revisão pendente pela equipe. |
 | 27/10/2026 | 0.3 | Paleta laranja, branco, cinza e preto; GIFs locais minimalistas no cabeçalho e divisores. Requisitos preservados. | Revisão pendente pela equipe. |
 | 27/10/2026 | 0.2 | Atualização visual: cabeçalho animado, identidade de terminal, badges, navegação e apresentação da stack; requisitos preservados. | Revisão pendente pela equipe. |
 | 27/10/2026 | 0.1 | Elaboração da especificação, escopo do MVP, requisitos, regras de negócio, modelagem e proposta técnica em Laravel. | Revisão pendente pela equipe. |
 
-A versão 0.3 mantém os requisitos da versão 0.1, ainda não homologados. Mudanças de escopo deverão atualizar os requisitos e seus critérios de aceite neste arquivo. Os identificadores não devem ser reutilizados para funcionalidades diferentes.
+A versão 0.4 preserva os identificadores e as prioridades dos requisitos, com esclarecimentos de redação. A equipe ainda precisa homologar o conteúdo, ou seja, confirmar que ele representa a entrega esperada. Mudanças de escopo deverão atualizar os requisitos e seus critérios de aceite neste arquivo. Os identificadores não devem ser reutilizados para funcionalidades diferentes.
 
 ---
 
 ## 2. Definição do projeto
 
-`02 / PRODUCT VISION`
+`02 / VISÃO DO PRODUTO`
 
 ### 2.1 Tema
 
@@ -119,7 +134,7 @@ O público-alvo inicial são pessoas e pequenos negócios que contratam serviço
 - Permitir avaliações verificáveis e moderação básica de abusos.
 - Demonstrar, em ambiente acadêmico, um fluxo completo da publicação à conclusão sem movimentação financeira real.
 
-**Critério de sucesso do MVP:** duas contas distintas deverão completar o fluxo cadastro → projeto publicado → proposta enviada → contratação → entrega → aprovação → avaliação. Uma terceira conta sem vínculo não poderá acessar propostas privadas, mensagens ou anexos da contratação. Todos os requisitos classificados como P0 deverão passar pelos critérios de aceite antes da demonstração final.
+**Critério de sucesso da primeira versão (MVP):** duas contas distintas deverão completar o fluxo cadastro → projeto publicado → proposta enviada → contratação → entrega → aprovação → avaliação. Uma terceira conta sem vínculo não poderá acessar propostas privadas, mensagens ou anexos da contratação. Todos os requisitos classificados como P0 deverão passar pelos critérios de aceite antes da demonstração final.
 
 ### 2.4 Atores e permissões
 
@@ -134,6 +149,8 @@ Uma conta poderá atuar como cliente e freelancer, mas não poderá enviar propo
 
 ### 2.5 Premissas e limites do MVP
 
+**MVP (produto mínimo viável)** é a primeira versão capaz de demonstrar o fluxo principal completo. Neste projeto, essa entrega será acadêmica, com dados fictícios e sem pagamentos reais.
+
 | Dentro do MVP proposto | Fora do MVP |
 |---|---|
 | Aplicação web responsiva em português do Brasil. | Aplicativos nativos Android/iOS. |
@@ -145,6 +162,19 @@ Uma conta poderá atuar como cliente e freelancer, mas não poderá enviar propo
 | Moderação e cancelamento sem movimentação de dinheiro. | Gateway, carteira, custódia, saques e reembolsos. |
 
 O valor de uma proposta será uma condição registrada do serviço, **não um pagamento processado**. O sistema não deverá exibir saldo, depósito garantido, pagamento aprovado ou qualquer promessa de garantia financeira no MVP. Também não deverá coletar dados de cartão ou conta bancária.
+
+### Exemplo do fluxo principal
+
+Considere um cliente que precisa de uma página de apresentação para seu negócio:
+
+1. **Publicação:** o cliente descreve o trabalho, informa um orçamento de R$ 800 a R$ 1.200 e um prazo desejado de dez dias.
+2. **Proposta:** um freelancer oferece realizar o serviço por R$ 1.000 em sete dias corridos.
+3. **Contratação:** o cliente aceita a proposta. O sistema registra o escopo, o valor de R$ 1.000 e o prazo de sete dias a partir do aceite.
+4. **Execução:** os participantes trocam mensagens e o freelancer registra a entrega.
+5. **Análise:** o cliente aprova a entrega ou solicita ajustes. Se pedir ajustes, o freelancer envia uma nova versão.
+6. **Conclusão:** após a aprovação, o trabalho é encerrado e cada participante pode avaliar a outra parte.
+
+Os valores ilustram o acordo; o sistema não movimenta dinheiro. O prazo desejado do projeto é uma referência para propostas. O prazo da contratação é o prazo efetivamente aceito, e uma revisão não o prorroga automaticamente.
 
 ### 2.6 Mapa de módulos proposto
 
@@ -165,16 +195,22 @@ Esse mapa é uma proposta de divisão de responsabilidades, não a criação de 
 
 ## 3. Requisitos do sistema
 
-`03 / REQUIREMENTS CORE`
+`03 / REQUISITOS`
 
 ### Convenções
 
-- **RF:** requisito funcional; **RNF:** requisito não funcional; **RN:** regra de negócio.
+- **RF (requisito funcional):** ação que o sistema deve permitir, como enviar uma proposta.
+- **RNF (requisito não funcional):** condição de qualidade, como tempo de resposta e segurança.
+- **RN (regra de negócio):** restrição do funcionamento, como impedir uma proposta para o próprio projeto.
+- **Critério de aceite:** resultado observável que permite verificar se um requisito foi atendido.
+- **UC:** caso de uso; **CA:** cenário de aceite; **T:** tela; **BL:** item do backlog (lista de evoluções).
 - **P0 — essencial:** necessário para o MVP; **P1 — complementar:** pode ficar para uma segunda entrega; **P2 — futuro:** fora do MVP.
 - Cada critério de aceite descreve comportamento verificável. Todos os requisitos desta seção estão **especificados, ainda não implementados**.
 - Os limites numéricos são propostas para tornar a especificação testável e deverão ser revistos com a equipe.
 
 ### 3.1 Requisitos funcionais
+
+São **30 requisitos P0** para o MVP e **dois P1**, RF006 e RF026, reservados para uma entrega complementar. Os requisitos estão agrupados pelo fluxo de uso; cada linha deve ser lida junto das regras citadas nas seções seguintes.
 
 #### 3.1.1 Cadastro, acesso e perfil
 
@@ -192,10 +228,10 @@ Esse mapa é uma proposta de divisão de responsabilidades, não a criação de 
 
 | ID | Prioridade | Requisito | Critério de aceite |
 |---|---|---|---|
-| RF008 | P0 | O sistema deve permitir criar e editar rascunho de projeto. | Cliente informa título, descrição, categoria, habilidades, orçamento mínimo/máximo e prazo desejado; o rascunho fica visível apenas ao autor. |
+| RF008 | P0 | O sistema deve permitir criar rascunho e editar projeto conforme RN003. | Cliente informa título, descrição, categoria, habilidades, orçamento mínimo/máximo e prazo desejado. Rascunho é privado; projeto publicado só pode ser editado antes de receber a primeira proposta. |
 | RF009 | P0 | O sistema deve permitir publicar um rascunho válido. | Com e-mail verificado e campos válidos, o projeto passa para publicado e aparece na busca; campos ausentes ou orçamento inválido impedem a publicação. |
-| RF010 | P0 | O sistema deve listar e filtrar projetos publicados por texto, categoria, habilidade e faixa de orçamento. | Filtros combinam-se por interseção; resultados são paginados em 20 itens, ordenados do mais recente ao mais antigo, com desempate por ID. Busca vazia apresenta orientação. |
-| RF011 | P0 | O sistema deve exibir detalhes públicos de projeto disponível. | Visitante vê descrição, habilidades, faixa de orçamento, prazo desejado e perfil público do cliente; não vê propostas ou mensagens. Projetos cancelados, moderados ou rascunhos não aparecem na listagem pública. |
+| RF010 | P0 | O sistema deve listar e filtrar projetos publicados por texto, categoria, habilidade e faixa de orçamento. | O resultado deve atender a todos os filtros selecionados; resultados são paginados em 20 itens, ordenados do mais recente ao mais antigo, com desempate por ID. Busca sem resultados apresenta orientação para alterar ou limpar os filtros. |
+| RF011 | P0 | O sistema deve exibir detalhes públicos de projeto disponível. | Visitante vê descrição, habilidades, faixa de orçamento, prazo desejado e perfil público do cliente; não vê propostas ou mensagens. A listagem pública inclui apenas projetos publicados e visíveis; rascunhos, projetos em execução, concluídos, cancelados ou ocultos pela moderação ficam fora dela. |
 | RF012 | P0 | O sistema deve permitir cancelar projeto ainda não contratado. | Apenas o autor pode cancelar; a operação registra motivo, retira o projeto da busca e encerra propostas pendentes, sem apagar o histórico. |
 | RF013 | P0 | O sistema deve apresentar painel com os projetos, propostas e contratações do usuário. | Cliente vê seus projetos e propostas recebidas; freelancer vê suas candidaturas e contratações; os totais e filtros correspondem aos registros acessíveis à conta. |
 
@@ -214,7 +250,7 @@ Esse mapa é uma proposta de divisão de responsabilidades, não a criação de 
 
 | ID | Prioridade | Requisito | Critério de aceite |
 |---|---|---|---|
-| RF020 | P0 | O sistema deve permitir troca de mensagens de texto entre os participantes de uma contratação ativa. | Mensagem não vazia, de até 5.000 caracteres, é persistida com remetente e horário; outro usuário recebe acesso negado. Após encerramento, a conversa fica somente para leitura. |
+| RF020 | P0 | O sistema deve permitir troca de mensagens de texto entre os participantes de uma contratação ativa. | Mensagem não vazia, de até 5.000 caracteres, é persistida com remetente e horário; terceiros recebem acesso negado, salvo análise administrativa vinculada a denúncia conforme RN016. Após encerramento, a conversa fica somente para leitura. |
 | RF021 | P0 | O sistema deve permitir que o freelancer registre uma entrega com descrição e até cinco anexos. | Apenas o contratado pode entregar em execução ou em revisão; o sistema registra uma nova versão, preserva as anteriores e muda o estado para entregue. |
 | RF022 | P0 | O sistema deve permitir que o cliente solicite revisão de uma entrega. | Apenas o contratante solicita revisão de entrega pendente de análise, com justificativa obrigatória; estado passa a em revisão e o histórico permanece acessível. |
 | RF023 | P0 | O sistema deve permitir ao cliente aprovar a entrega e concluir a contratação. | Aprovar uma entrega pendente registra data de conclusão e encerra o projeto; repetir a ação não duplica eventos nem avaliações. Não há conclusão automática por tempo no MVP. |
@@ -234,6 +270,17 @@ Esse mapa é uma proposta de divisão de responsabilidades, não a criação de 
 | RF032 | P0 | O sistema deve registrar operações administrativas e alterações relevantes de estado. | Registro contém ator, ação, objeto, data e justificativa quando aplicável; usuários comuns não podem editar ou apagar a trilha. |
 
 ### 3.2 Requisitos não funcionais
+
+**Como interpretar as metas:** os requisitos desta seção descrevem a qualidade esperada. A execução dos testes depende da etapa do projeto:
+
+| Etapa | O que verificar |
+|---|---|
+| Desenvolvimento e demonstração acadêmica | Funcionalidades, permissões, integridade, arquivos, responsividade e testes automatizados. Usar os cenários descritos em cada RNF. |
+| Homologação (ambiente de validação) | Medir RNF001 e RNF002 nas condições declaradas; testar compatibilidade e acessibilidade. Registrar resultados e limitações do ambiente. |
+| Antes de abrir o sistema ao público | Aplicar as configurações de produção de RNF006 e RNF014, aprovar o procedimento de privacidade de RNF011 e validar restauração de backup de RNF012. |
+| Operação pública futura | Medir a disponibilidade mensal de RNF013 e manter backups e monitoramento. Essas medições não são exigidas de uma aplicação que ainda não está publicada. |
+
+**Percentil 95 (p95)** significa que pelo menos 95% das requisições devem ficar dentro do tempo indicado. **LCP** mede o tempo de exibição do maior conteúdo visível; **CLS** mede mudanças inesperadas de posição dos elementos. As diretrizes **WCAG 2.2 AA** são a referência de acessibilidade adotada.
 
 As metas abaixo são critérios de qualidade para o produto futuro, não resultados já medidos. O cenário de referência de desempenho será uma base com 10.000 projetos e 50 usuários virtuais simultâneos em homologação de 2 vCPU e 4 GB de RAM, com configuração e dados registrados no relatório de teste.
 
@@ -260,6 +307,8 @@ As metas abaixo são critérios de qualidade para o produto futuro, não resulta
 
 ### 3.3 Regras de negócio
 
+Estas regras complementam os requisitos funcionais. Elas definem quem pode agir, em qual estado e com quais restrições.
+
 | ID | Regra |
 |---|---|
 | RN001 | E-mail deve ser único após normalização definida pelo sistema; uma conta pode contratar e prestar serviços, mas não negociar consigo mesma. |
@@ -280,8 +329,8 @@ As metas abaixo são critérios de qualidade para o produto futuro, não resulta
 | RN016 | Somente participantes podem ler mensagens e anexos privados. Administrador só acessa esse conteúdo quando necessário à denúncia vinculada, com registro de acesso; função administrativa não concede leitura irrestrita. |
 | RN017 | Suspensão não apaga projetos, mensagens ou acordos. Conteúdo público da conta é ocultado e contratações abertas são encaminhadas à moderação; a contraparte mantém acesso ao próprio histórico. |
 | RN018 | Categorias vinculadas a projetos são desativadas, não excluídas fisicamente. Projetos, propostas e contratações com histórico também não são apagados por ações comuns da interface. |
-| RN019 | Exclusão/anonymização de conta e retenção de registros terão política própria a validar antes de uso real, sem presumir retenção eterna ou destruição imediata de registros de terceiros. |
-| RN020 | O MVP não cobra comissão, processa pagamento ou promete proteção financeira. Modelo de receita e meios de pagamento pertencem ao backlog. |
+| RN019 | Exclusão/anonimização de conta e retenção de registros terão política própria a validar antes de uso real, sem presumir retenção eterna ou destruição imediata de registros de terceiros. |
+| RN020 | O MVP não cobra comissão, não processa pagamentos e não promete proteção financeira. Modelo de receita e meios de pagamento pertencem ao backlog. |
 
 ### 3.4 Validação dos principais dados
 
@@ -340,6 +389,10 @@ Dada uma solicitação pendente, quando a contraparte aceita, então projeto e c
 
 ### 3.6 Estados e transições
 
+**Projeto** é a oportunidade publicada pelo cliente. **Proposta** é a oferta de um freelancer. **Contratação** é o acordo criado quando uma proposta é aceita.
+
+O projeto permanece **em execução** enquanto a contratação estiver em execução, entregue ou em revisão. Ele só muda para concluído após aprovação do cliente, ou para cancelado após o procedimento de cancelamento. Assim, “entregue” significa que há trabalho aguardando análise, não que o projeto terminou.
+
 #### Projeto
 
 ```mermaid
@@ -373,7 +426,14 @@ stateDiagram-v2
     Cancelada --> [*]
 ```
 
-Solicitação de cancelamento tem ciclo próprio: `pendente → aceita | recusada | retirada`. Ela mantém o estado anterior da contratação até a decisão, com os bloqueios de RN015. Apenas uma solicitação pendente pode existir por contratação. Propostas seguem `pendente → aceita | recusada | retirada | encerrada`; `encerrada` é usada quando o projeto é cancelado antes de contratar. Estados terminais não permitem edição.
+Além do projeto e da contratação, existem dois ciclos independentes:
+
+| Registro | Estado inicial | Possíveis estados finais | Observação |
+|---|---|---|---|
+| Proposta | Pendente | Aceita, recusada, retirada ou encerrada | “Encerrada” significa que o projeto foi cancelado antes de contratar. |
+| Solicitação de cancelamento | Pendente | Aceita, recusada ou retirada | Mantém o estado da contratação até a decisão, mas bloqueia entregas, revisões e conclusão conforme RN015. |
+
+Só pode existir uma solicitação de cancelamento pendente por contratação. Ao recusá-la ou retirá-la, os bloqueios são removidos; ao aceitá-la, projeto e contratação são cancelados. Registros em estados finais não podem ser editados.
 
 ### 3.7 Modelagem das telas
 
@@ -456,6 +516,8 @@ flowchart LR
 
 ### 3.8 Modelo conceitual de dados
 
+O modelo identifica quais informações precisam ser armazenadas e como se relacionam. Ele orientará o banco de dados; não representa tabelas já criadas.
+
 | Entidade | Dados principais | Restrições essenciais |
 |---|---|---|
 | Usuário | Nome, e-mail, hash de senha, verificação, situação e papel administrativo. | E-mail único; privilégio administrativo não vem do formulário público. |
@@ -525,7 +587,7 @@ Na implementação, testes unitários cobrirão regras de valores, prazos e tran
 
 ## 4. Requisitos técnicos do projeto
 
-`04 / TECH STACK`
+`04 / TECNOLOGIAS`
 
 <div align="center">
 
@@ -564,11 +626,11 @@ Na implementação, testes unitários cobrirão regras de valores, prazos e tran
 | Arquivos | Armazenamento privado; downloads por rota autorizada. | Evitar exposição pública de entregas. |
 | Serviços externos | E-mail transacional para verificação e recuperação; provedor a definir. | Em desenvolvimento, usar captura local de e-mail ou driver de log. Nenhum gateway de pagamento no MVP. |
 
-As escolhas marcadas como propostas não significam dependências já instaladas. Não há API pública, microsserviços ou SPA obrigatórios no escopo inicial.
+A versão 13.39.0 é o registro da consulta feita em 27/10/2026, não uma garantia de que continuará sendo a versão mais recente. As escolhas marcadas como propostas não significam dependências já instaladas. Não há API pública, microsserviços ou SPA obrigatórios no escopo inicial.
 
 ### 4.2 Organização futura do framework
 
-**A árvore abaixo é uma proposta documental. Essas pastas não foram mantidas no repositório nesta etapa.**
+**A árvore abaixo descreve a organização futura do Laravel; as pastas da aplicação ainda não existem no projeto.** O estado atual é composto por este README e pelos arquivos visuais em `assets/readme/`.
 
 ```text
 Freelancerweb/
@@ -615,20 +677,14 @@ Freelancerweb/
 - Segredos em variáveis de ambiente; `.env`, dependências instaladas e anexos privados fora do Git.
 - Dependências terão versões reproduzíveis em arquivos de lock quando a aplicação for inicializada.
 
-Exemplo ilustrativo de nomenclatura, sem implementação de negócio:
+Exemplo de separação de responsabilidades para **aceitar uma proposta**:
 
-```php
-final class AcceptProposal
-{
-    public function handle(User $client, Proposal $proposal): Contract
-    {
-        // Autorizar, conferir estado e persistir o acordo em transação.
-        // Implementação será escrita e testada na etapa de desenvolvimento.
-    }
-}
-```
+1. O controller recebe a solicitação do cliente.
+2. A validação verifica os dados e a policy confirma a permissão para agir.
+3. Uma operação de domínio, como `AcceptProposal`, verifica o estado e registra o acordo em uma transação.
+4. A resposta informa o resultado e direciona o cliente para a contratação.
 
-O exemplo não é código executável completo e não deve ser copiado como funcionalidade pronta.
+Esse fluxo orienta a implementação futura. A transação deve garantir que contratação, projeto e propostas sejam atualizados juntos, conforme RN008.
 
 ### 4.4 Ambiente e execução — etapa futura
 
@@ -652,7 +708,7 @@ Depois dessa inicialização, esta seção deverá receber os comandos efetivame
 
 ## 5. Ideias futuras — backlog
 
-`05 / NEXT ITERATIONS`
+`05 / EVOLUÇÕES`
 
 | ID | Prioridade | Funcionalidade | Condição para iniciar |
 |---|---|---|---|
@@ -667,13 +723,13 @@ Depois dessa inicialização, esta seção deverá receber os comandos efetivame
 | BL009 | P2 | Painéis analíticos e exportação de relatórios. | Métricas e autorização de acesso definidas. |
 | BL010 | P2 | Modo escuro, internacionalização e aplicativos móveis. | MVP responsivo validado e demanda identificada. |
 
-Esses itens não devem ser considerados entregues nem obrigatórios para o MVP. A ordem de desenvolvimento e os responsáveis serão definidos após a revisão dos requisitos, sem inventar prazos de entrega ou divisão de trabalho não combinados com o grupo.
+Os itens P1 e P2 ficam fora da entrega obrigatória do MVP. A equipe definirá ordem de desenvolvimento, responsáveis e prazos depois de revisar os requisitos.
 
 ---
 
 ## 6. Validação e decisões pendentes
 
-`06 / REVIEW GATE`
+`06 / VALIDAÇÃO`
 
 ### 6.1 Decisões confirmadas pela equipe
 
@@ -687,7 +743,7 @@ Esses itens não devem ser considerados entregues nem obrigatórios para o MVP. 
 
 | Tema | Proposta atual | Decisão necessária |
 |---|---|---|
-| Nome e identidade | Freelancerweb, provisório. | Confirmar nome e identidade visual. |
+| Nome do produto | Freelancerweb, provisório; apresentação do README em laranja, branco, cinza e preto. | Confirmar o nome definitivo e como aplicar a identidade ao site. |
 | Limite da entrega acadêmica | Todos os P0; P1 apenas se houver capacidade. | Confirmar prazo, critérios do professor e eventual redução de escopo. |
 | Pagamentos | Fora do MVP, sem simular garantias financeiras. | Confirmar se a disciplina exige qualquer demonstração financeira. |
 | Banco | SQLite inicialmente. | Confirmar se o professor exige MySQL/PostgreSQL. |
@@ -696,6 +752,8 @@ Esses itens não devem ser considerados entregues nem obrigatórios para o MVP. 
 | Revisões e cancelamentos | Revisão sem limite automático; cancelamento por acordo ou moderação. | Validar com exemplos de uso e disponibilidade de administrador. |
 | Dados e uso público | Dados fictícios na demonstração. | Definir termos, privacidade, retenção, exclusão e responsável antes de abrir cadastros reais. |
 | Hospedagem e comunicação | Ainda não definidos. | Escolher ambiente, orçamento e provedor de e-mail na implementação. |
+| Filtro de orçamento | RF010 prevê uma faixa de busca, mas não define a comparação entre intervalos. | Decidir se o projeto precisa caber inteiramente na faixa pesquisada ou apenas ter valores em comum com ela. |
+| Datas e revisões | Prazo conta a partir do aceite; não há prorrogação automática. | Confirmar se haverá alteração de prazo por acordo ou se isso ficará para uma versão futura. |
 
 ### 6.3 Critério para encerrar esta etapa
 
@@ -712,7 +770,7 @@ Esses itens não devem ser considerados entregues nem obrigatórios para o MVP. 
 
 ## 7. Referências e origem da documentação
 
-`07 / KNOWLEDGE BASE`
+`07 / REFERÊNCIAS`
 
 - **TEMPLATE_LTP3_DOCUMENTAÇÃO.pdf**, fornecido pela equipe: estrutura acadêmica com histórico, definição do projeto, requisitos funcionais/não funcionais, modelagem, requisitos técnicos e backlog. A numeração repetida de “3.2” do modelo foi reorganizada neste README.
 - **Definições da equipe:** ideia de plataforma freelancer, prioridade em documentação, Laravel e identificação acadêmica.
@@ -723,7 +781,36 @@ Esses itens não devem ser considerados entregues nem obrigatórios para o MVP. 
 As regras e limites de produto são propostas de engenharia para este projeto; não foram extraídos como regras oficiais da Workana. O PDF foi tratado como referência documental, e seus exemplos genéricos não foram adotados automaticamente como exigências do sistema.
 
 
+---
 
+## 8. Glossário
+
+Use esta seção para consultar os termos presentes nos requisitos e na proposta técnica.
+
+| Termo | Significado neste projeto |
+|---|---|
+| Marketplace | Plataforma que aproxima quem procura um serviço de quem oferece esse serviço. |
+| MVP | Produto mínimo viável: primeira versão com o fluxo principal completo e escopo limitado. |
+| Contraparte | A outra pessoa da contratação: o freelancer para o cliente, ou o cliente para o freelancer. |
+| Escopo | Descrição do trabalho e das entregas combinadas. |
+| Homologação | Verificação da entrega em ambiente de teste antes de sua aprovação ou publicação. |
+| Backlog | Lista de funcionalidades previstas para entregas posteriores. |
+| Wireframe | Esboço de uma tela para discutir organização e navegação antes do desenho final. |
+| Estado / transição | Situação atual de um registro e mudança permitida para outra situação. |
+| Operação atômica / transação | Conjunto de mudanças que deve ser concluído por inteiro; se falhar, nenhuma parte é confirmada. |
+| Concorrência | Duas ou mais ações executadas ao mesmo tempo, como tentativas de aceitar propostas distintas. |
+| Idempotência | Repetir a mesma solicitação não deve duplicar seu efeito, como criar duas contratações. |
+| Autenticação / autorização | Verificar quem acessa o sistema / verificar o que essa pessoa pode fazer. |
+| Hash de senha | Representação calculada da senha, usada para conferência sem guardar a senha em texto puro. |
+| CSRF | Falsificação de requisição entre sites; a proteção impede ações indevidas usando a sessão de alguém. |
+| MIME | Identificação do tipo de conteúdo de um arquivo, usada junto de outras verificações de upload. |
+| UTC / BRL | Referência de horário usada na persistência / código monetário do real brasileiro. |
+| Monólito modular / MVC | Uma aplicação organizada por responsabilidades / separação entre modelos, apresentação e controllers. |
+| Migration | Alteração versionada do esquema do banco de dados. |
+| Factory / seeder | Gerador de dados para testes / rotina para popular o banco com dados iniciais ou fictícios. |
+| Policy / Gate | Recursos de autorização do Laravel para verificar permissões. |
+| Teste ponta a ponta | Verificação de um fluxo completo, da interação na interface ao resultado persistido. |
+| Build / assets | Preparação dos arquivos para execução ou publicação / recursos como CSS, JavaScript e imagens. |
 
 ---
 
