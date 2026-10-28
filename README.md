@@ -438,7 +438,7 @@ Só pode existir uma solicitação de cancelamento pendente por contratação. A
 
 ### 3.7 Modelagem das telas
 
-Esta seção corresponde à modelagem solicitada pelo template. São especificações de navegação e wireframes textuais de baixa fidelidade, não telas implementadas.
+Esta seção apresenta a navegação e os esboços das telas do sistema. Os wireframes são modelos de baixa fidelidade para orientar o desenvolvimento.
 
 | Tela | Conteúdo e ações | Acesso | RF relacionados |
 |---|---|---|---|
@@ -758,7 +758,7 @@ Os itens P1 e P2 ficam fora da entrega obrigatória do MVP. A equipe definirá o
 
 ### 6.3 Critério para encerrar esta etapa
 
-- [x] Identificação acadêmica preenchida com os dados fornecidos.
+- [x] Identificação da instituição, da disciplina, do professor e dos integrantes registrada.
 - [x] Estrutura do template adaptada para Markdown.
 - [x] Objetivo, atores, escopo e exclusões documentados.
 - [x] Requisitos funcionais e não funcionais identificados e verificáveis.
@@ -773,13 +773,13 @@ Os itens P1 e P2 ficam fora da entrega obrigatória do MVP. A equipe definirá o
 
 `07 / REFERÊNCIAS`
 
-- **TEMPLATE_LTP3_DOCUMENTAÇÃO.pdf**, fornecido pela equipe: estrutura acadêmica com histórico, definição do projeto, requisitos funcionais/não funcionais, modelagem, requisitos técnicos e backlog. A numeração repetida de “3.2” do modelo foi reorganizada neste README.
+- **TEMPLATE_LTP3_DOCUMENTAÇÃO.pdf**: modelo acadêmico de referência para a estrutura da especificação, incluindo histórico, definição do projeto, requisitos, modelagem, tecnologias e backlog.
 - **Definições da equipe:** ideia de plataforma freelancer, prioridade em documentação, Laravel e identificação acadêmica.
 - [Documentação oficial — instalação do Laravel 13](https://laravel.com/docs/13.x/installation), consultada em 27/10/2026.
 - [Documentação oficial — versões e requisitos de PHP do Laravel](https://laravel.com/docs/13.x/releases), consultada em 27/10/2026.
 - [Metadados do pacote laravel/framework no Packagist](https://repo.packagist.org/p2/laravel/framework.json), consultados em 27/10/2026: versão estável mais recente encontrada, `v13.39.0`.
 
-As regras e limites de produto são propostas de engenharia para este projeto; não foram extraídos como regras oficiais da Workana. O PDF foi tratado como referência documental, e seus exemplos genéricos não foram adotados automaticamente como exigências do sistema.
+As regras e os limites descritos nesta especificação pertencem ao Freelancerweb. A Workana é uma referência de modelo de negócio; suas regras comerciais não integram os requisitos deste projeto.
 
 
 ---
