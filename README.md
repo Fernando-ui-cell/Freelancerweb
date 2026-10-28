@@ -62,7 +62,7 @@ freelancerweb / especificação do projeto
 - João Francisco
 - Gabriel
 
-**Versão do documento:** 0.4 · **Atualização:** 28/10/2026 · **Situação:** em revisão.
+**Versão do documento:** 0.5 · **Atualização:** 28/10/2026 · **Situação:** em revisão.
 
 Laravel está definido pela equipe. Os limites da primeira versão e as tecnologias complementares ainda precisam de validação, conforme a [seção 6](#6-validação-e-decisões-pendentes).
 
@@ -100,12 +100,13 @@ Laravel está definido pela equipe. Os limites da primeira versão e as tecnolog
 
 | Data | Versão | Descrição | Validação |
 |---|---|---|---|
+| 28/10/2026 | 0.5 | Revisão ortográfica e gramatical, padronização da redação e atualização da edição em PDF, com Arial e paginação uniforme. | Revisão pendente pela equipe. |
 | 28/10/2026 | 0.4 | Revisão de clareza: guia de leitura, glossário, exemplo de uso, distinção entre MVP e produção e alinhamento das regras. Registro da apresentação atual em SVG animado. | Revisão pendente pela equipe. |
 | 27/10/2026 | 0.3 | Paleta laranja, branco, cinza e preto; GIFs locais minimalistas no cabeçalho e divisores. Requisitos preservados. | Revisão pendente pela equipe. |
 | 27/10/2026 | 0.2 | Atualização visual: cabeçalho animado, identidade de terminal, badges, navegação e apresentação da stack; requisitos preservados. | Revisão pendente pela equipe. |
 | 27/10/2026 | 0.1 | Elaboração da especificação, escopo do MVP, requisitos, regras de negócio, modelagem e proposta técnica em Laravel. | Revisão pendente pela equipe. |
 
-A versão 0.4 preserva os identificadores e as prioridades dos requisitos, com esclarecimentos de redação. A equipe ainda precisa homologar o conteúdo, ou seja, confirmar que ele representa a entrega esperada. Mudanças de escopo deverão atualizar os requisitos e seus critérios de aceite neste arquivo. Os identificadores não devem ser reutilizados para funcionalidades diferentes.
+A versão 0.5 preserva os identificadores e as prioridades dos requisitos, com esclarecimentos de redação. A equipe ainda precisa homologar o conteúdo, ou seja, confirmar que ele representa a entrega esperada. Mudanças de escopo deverão atualizar os requisitos e seus critérios de aceite neste arquivo. Os identificadores não devem ser reutilizados para funcionalidades diferentes.
 
 ---
 
@@ -216,11 +217,11 @@ São **30 requisitos P0** para o MVP e **dois P1**, RF006 e RF026, reservados pa
 
 | ID | Prioridade | Requisito | Critério de aceite |
 |---|---|---|---|
-| RF001 | P0 | O sistema deve permitir cadastro com nome, e-mail, senha, confirmação de senha e aceite da versão vigente dos termos e aviso de privacidade. | Dados válidos criam uma conta; e-mail duplicado, senha divergente ou aceite ausente impedem a criação e exibem orientação. O cadastro nunca concede função administrativa. |
-| RF002 | P0 | O sistema deve permitir login e logout. | Credenciais válidas iniciam sessão; erro usa mensagem genérica; logout invalida a sessão e impede reutilização do acesso. |
+| RF001 | P0 | O sistema deve permitir cadastro com nome, e-mail, senha, confirmação de senha e aceite da versão vigente dos termos e do aviso de privacidade. | Dados válidos criam uma conta; e-mail duplicado, senha divergente ou aceite ausente impedem a criação e exibem orientação. O cadastro nunca concede função administrativa. |
+| RF002 | P0 | O sistema deve permitir login e logout. | Credenciais válidas iniciam uma sessão; falhas de autenticação exibem mensagem genérica; o logout invalida a sessão e impede sua reutilização. |
 | RF003 | P0 | O sistema deve permitir recuperação de senha por e-mail. | Link de uso único expira em 60 minutos; após redefinição, a senha anterior deixa de autenticar e sessões anteriores são revogadas. A resposta à solicitação não revela se o e-mail existe. |
 | RF004 | P0 | O sistema deve verificar a titularidade do e-mail antes de publicar projeto, enviar proposta ou contratar. | Conta não verificada pode navegar, mas as ações restritas são recusadas; link válido marca a conta como verificada e não pode verificar outra conta. |
-| RF005 | P0 | O sistema deve permitir edição do próprio perfil profissional. | Usuário altera nome público, título profissional, biografia e até 20 habilidades; alterações de outro usuário são recusadas. E-mail e dados privados não aparecem no perfil público. |
+| RF005 | P0 | O sistema deve permitir edição do próprio perfil profissional. | Usuário altera nome público, título profissional, biografia e até 20 habilidades; tentativas de editar o perfil de outro usuário são recusadas. E-mail e dados privados não aparecem no perfil público. |
 | RF006 | P1 | O sistema deve permitir cadastrar itens de portfólio com título, descrição e link HTTPS. | O autor pode criar, editar e remover itens; links com protocolos executáveis são rejeitados; visitante visualiza apenas itens públicos. |
 | RF007 | P0 | O sistema deve apresentar perfil público com habilidades, quantidade de avaliações e média das notas recebidas. | Perfil sem avaliação exibe “Ainda sem avaliações”; a média considera somente avaliações publicadas de contratações concluídas. |
 
@@ -239,7 +240,7 @@ São **30 requisitos P0** para o MVP e **dois P1**, RF006 e RF026, reservados pa
 
 | ID | Prioridade | Requisito | Critério de aceite |
 |---|---|---|---|
-| RF014 | P0 | O sistema deve permitir enviar proposta com apresentação, valor e prazo em dias corridos. | Freelancer verificado, com título profissional, biografia e ao menos uma habilidade preenchidos, envia uma proposta a projeto publicado de outro usuário; repetição, conta suspensa, valor inválido ou projeto indisponível são recusados. |
+| RF014 | P0 | O sistema deve permitir enviar proposta com apresentação, valor e prazo em dias corridos. | Freelancer verificado, com título profissional, biografia e ao menos uma habilidade preenchidos, envia uma proposta a projeto publicado de outro usuário; o sistema recusa propostas duplicadas, de contas suspensas, com valor inválido ou para projetos indisponíveis. |
 | RF015 | P0 | O sistema deve permitir editar ou retirar proposta pendente. | Somente o autor pode alterar uma proposta ainda pendente e de projeto publicado; retirada mantém histórico e impede posterior aceite. |
 | RF016 | P0 | O sistema deve permitir ao cliente comparar propostas do próprio projeto. | A listagem mostra autor, valor, prazo e apresentação; terceiros e outros candidatos não conseguem ler essas propostas, inclusive por URL direta. |
 | RF017 | P0 | O sistema deve permitir ao cliente aceitar uma proposta pendente e registrar a contratação. | O aceite cria uma única contratação, preserva as condições aceitas e muda o projeto para em execução; as demais propostas pendentes são recusadas. Duas solicitações simultâneas não criam duas contratações. |
@@ -250,7 +251,7 @@ São **30 requisitos P0** para o MVP e **dois P1**, RF006 e RF026, reservados pa
 
 | ID | Prioridade | Requisito | Critério de aceite |
 |---|---|---|---|
-| RF020 | P0 | O sistema deve permitir troca de mensagens de texto entre os participantes de uma contratação ativa. | Mensagem não vazia, de até 5.000 caracteres, é persistida com remetente e horário; terceiros recebem acesso negado, salvo análise administrativa vinculada a denúncia conforme RN016. Após encerramento, a conversa fica somente para leitura. |
+| RF020 | P0 | O sistema deve permitir troca de mensagens de texto entre os participantes de uma contratação ativa. | Mensagem não vazia, de até 5.000 caracteres, é persistida com remetente e horário; terceiros recebem acesso negado, salvo análise administrativa vinculada a uma denúncia, conforme RN016. Após encerramento, a conversa fica somente para leitura. |
 | RF021 | P0 | O sistema deve permitir que o freelancer registre uma entrega com descrição e até cinco anexos. | Apenas o contratado pode entregar em execução ou em revisão; o sistema registra uma nova versão, preserva as anteriores e muda o estado para entregue. |
 | RF022 | P0 | O sistema deve permitir que o cliente solicite revisão de uma entrega. | Apenas o contratante solicita revisão de entrega pendente de análise, com justificativa obrigatória; estado passa a em revisão e o histórico permanece acessível. |
 | RF023 | P0 | O sistema deve permitir ao cliente aprovar a entrega e concluir a contratação. | Aprovar uma entrega pendente registra data de conclusão e encerra o projeto; repetir a ação não duplica eventos nem avaliações. Não há conclusão automática por tempo no MVP. |
@@ -264,7 +265,7 @@ São **30 requisitos P0** para o MVP e **dois P1**, RF006 e RF026, reservados pa
 | ID | Prioridade | Requisito | Critério de aceite |
 |---|---|---|---|
 | RF028 | P0 | O sistema deve permitir denunciar projeto, perfil, avaliação ou a própria contratação. | Usuário autenticado informa motivo e descrição; recebe protocolo e acompanha situação. Denúncia de contratação privada exige participação nela. |
-| RF029 | P0 | O sistema deve permitir ao administrador analisar denúncias e registrar decisão. | Administrador encerra como procedente ou improcedente, com justificativa; eventual ocultação de conteúdo ou cancelamento administrativo mantém histórico e notifica afetados. |
+| RF029 | P0 | O sistema deve permitir ao administrador analisar denúncias e registrar decisão. | O administrador encerra a denúncia como procedente ou improcedente, com justificativa; a decisão preserva o histórico, registra eventual ocultação de conteúdo ou cancelamento administrativo e notifica os envolvidos. |
 | RF030 | P0 | O sistema deve permitir ao administrador suspender e reativar contas. | Suspensão exige motivo, revoga sessões e impede novas ações autenticadas; reativação é auditada. Trabalhos ativos são encaminhados à moderação, sem conclusão ou exclusão automática. |
 | RF031 | P0 | O sistema deve permitir ao administrador cadastrar, renomear e desativar categorias. | Nome é único; categoria desativada não pode ser escolhida em novos projetos, mas continua identificável no histórico dos existentes. |
 | RF032 | P0 | O sistema deve registrar operações administrativas e alterações relevantes de estado. | Registro contém ator, ação, objeto, data e justificativa quando aplicável; usuários comuns não podem editar ou apagar a trilha. |
@@ -290,10 +291,10 @@ As metas abaixo são critérios de qualidade para o produto futuro, não resulta
 | RNF002 | Carregamento | Página pública deve atingir LCP de até 2,5 s e CLS de até 0,1 em avaliação móvel de laboratório, usando mediana de cinco execuções e perfil de rede registrado. | Auditoria de página publicada em homologação, com ferramenta e condições registradas. |
 | RNF003 | Responsividade | Fluxos essenciais devem funcionar em larguras de 360, 768 e 1280 px, sem rolagem horizontal da página. | Inspeção das telas e realização do fluxo completo nas três larguras. |
 | RNF004 | Acessibilidade | Fluxos essenciais devem permitir teclado, foco visível, rótulos de campos, mensagens associadas e contraste mínimo de 4,5:1 para texto normal. WCAG 2.2 AA será a referência de avaliação. | Verificação automatizada e manual; zero barreiras críticas no fluxo principal. |
-| RNF005 | Credenciais | Senhas devem ter no mínimo 12 caracteres, aceitar pelo menos 64 e ser armazenadas somente como hash adaptativo, usando o mecanismo do Laravel. | Testes de validação e inspeção da persistência; ausência de senha em texto puro e logs. |
+| RNF005 | Credenciais | O sistema deve exigir senhas com, no mínimo, 12 caracteres, permitir senhas com pelo menos 64 caracteres e armazená-las somente como hash adaptativo, usando o mecanismo do Laravel. | Testes de validação e inspeção da persistência; ausência de senha em texto puro e logs. |
 | RNF006 | Sessão e transporte | Em produção, usar HTTPS, cookies de sessão Secure/HttpOnly/SameSite, renovação de sessão no login e proteção CSRF em operações autenticadas via formulário. | Testar cabeçalhos, troca de sessão e rejeição de requisição mutável sem token válido. |
 | RNF007 | Autorização | Toda leitura ou alteração de recurso privado deve conferir papel, vínculo e estado no servidor; identificadores enviados pelo navegador não são prova de autorização. | Testes com proprietário, participante, terceiro e conta suspensa; negar acesso indevido mesmo por URL direta. |
-| RNF008 | Abuso | Login deve limitar a cinco tentativas por minuto por combinação de identificador e IP; recuperação de senha, a três solicitações por hora por identificador. | Exceder limites retorna aviso e bloqueio temporário sem revelar existência da conta. |
+| RNF008 | Abuso | O sistema deve limitar o login a cinco tentativas por minuto por combinação de identificador e IP, e a recuperação de senha a três solicitações por hora por identificador. | Ao exceder os limites, o sistema deve exibir um aviso e aplicar bloqueio temporário sem revelar a existência da conta. |
 | RNF009 | Integridade | Aceite de proposta e transições de contratação devem ser atômicos; cada projeto deve ter no máximo uma contratação, inclusive sob concorrência. | Testes de integração, transação e duas requisições simultâneas; restrição de unicidade no banco. |
 | RNF010 | Uploads | Entregas devem aceitar apenas PDF, PNG e JPEG de até 10 MB por arquivo; validar conteúdo/MIME, tamanho e extensão, renomear arquivos e armazenar de forma privada. | Rejeitar arquivo executável, extensão enganosa, arquivo acima do limite e download sem permissão. |
 | RNF011 | Privacidade | Coletar somente os dados necessários; não publicar e-mail, hash de senha, IP ou registros privados. Definir procedimento de solicitação de acesso e exclusão antes de operação pública. | Revisão das respostas e telas; ensaio documentado de solicitação e política de retenção aprovada. |
@@ -312,11 +313,11 @@ Estas regras complementam os requisitos funcionais. Elas definem quem pode agir,
 | ID | Regra |
 |---|---|
 | RN001 | E-mail deve ser único após normalização definida pelo sistema; uma conta pode contratar e prestar serviços, mas não negociar consigo mesma. |
-| RN002 | Publicar projeto, propor, contratar e executar ações privadas exige conta ativa; publicar, propor e contratar também exige e-mail verificado. Enviar proposta exige título profissional, biografia e ao menos uma habilidade no perfil. |
+| RN002 | É necessário ter uma conta ativa para publicar projetos, enviar propostas, contratar e executar ações privadas. Publicar, propor e contratar também requerem e-mail verificado. Enviar proposta exige título profissional, biografia e ao menos uma habilidade no perfil. |
 | RN003 | Projeto só recebe propostas enquanto publicado. O autor pode editar conteúdo até receber a primeira proposta; depois, pode cancelar e publicar outro projeto, preservando o anterior. |
 | RN004 | Cada par projeto/freelancer possui uma única proposta no MVP. Editar é permitido enquanto pendente; retirada ou recusa é terminal, sem reenvio para o mesmo projeto. |
-| RN005 | Orçamento mínimo e máximo são positivos, e mínimo não supera máximo. Proposta pode estar fora da faixa estimada, mas a divergência deve aparecer ao cliente antes do aceite. |
-| RN006 | Dinheiro é armazenado como inteiro em centavos, nunca ponto flutuante. Limite proposto de R$ 0,01 a R$ 1.000.000,00 por valor. Prazo de proposta: 1 a 365 dias corridos. |
+| RN005 | Os orçamentos mínimo e máximo são positivos, e o valor mínimo não supera o máximo. Proposta pode estar fora da faixa estimada, mas a divergência deve aparecer ao cliente antes do aceite. |
+| RN006 | Os valores monetários são armazenados como números inteiros em centavos, nunca como números de ponto flutuante. Limite proposto de R$ 0,01 a R$ 1.000.000,00 por valor. Prazo da proposta: de 1 a 365 dias corridos. |
 | RN007 | Aceitar proposta cria uma contratação única por projeto, com cópia do escopo, valor, participantes e prazo aceitos. A data prevista é calculada a partir do instante de aceite mais o prazo acordado. |
 | RN008 | Aceite e recusa das demais propostas ocorrem na mesma transação. Se houver falha, não pode existir contratação parcial ou projeto em estado incompatível. |
 | RN009 | Apenas o freelancer contratado registra entrega; apenas o cliente contratante aprova ou solicita revisão. Entrega não significa conclusão nem pagamento. |
@@ -630,7 +631,7 @@ A versão 13.39.0 é o registro da consulta feita em 27/10/2026, não uma garant
 
 ### 4.2 Organização futura do framework
 
-**A árvore abaixo descreve a organização futura do Laravel; as pastas da aplicação ainda não existem no projeto.** O estado atual é composto por este README e pelos arquivos visuais em `assets/readme/`.
+**A árvore abaixo descreve a organização futura do Laravel; as pastas da aplicação ainda não existem no projeto.** O repositório contém a documentação, sua versão em PDF e os arquivos visuais em `assets/readme/`.
 
 ```text
 Freelancerweb/
